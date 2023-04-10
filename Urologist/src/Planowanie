@@ -1,0 +1,63 @@
+
+
+  sprawdzanie wyników badań :
+
+    Kolor: Od jasnożółtego do ciemnożółtego
+                      jasnożółty
+                      słomkowy odcień
+                      ciemnożółty
+                      czerwony
+                      bezbarwny
+
+
+    Wygląd:
+                 Klarowny
+                 Lekko Mętny
+                 Pienisty
+
+    pH: Od 4,6 do 8,0
+
+
+
+    Gęstość: Od 1,005 do 1,030
+
+
+
+    Białko: Nieobecne lub śladowe ilości (mniej niż 10 mg/dL)
+
+
+
+    Glukoza: Nieobecna lub śladowe ilości (mniej niż 100 mg/dL)
+
+
+
+    Ketony: Nieobecne
+
+
+
+    Urobilinogen: Od 0,2 do 1,0 mg/dL
+
+
+
+    Bilirubina: Nieobecna
+
+
+    Nitryty: Negatywne
+
+
+    Leukocyty: Nieobecne lub śladowe ilości (mniej niż 5 komórek/μL)
+
+
+    Erytrocyty: Nieobecne lub śladowe ilości (mniej niż 5 komórek/μL)
+
+
+
+
+\n1. Klarowny \n2. Lekko Mętny \n3. Pienisty");
+
+
+1. Jasnożółty
+2. Słomkowy
+3. Ciemnożółty
+4. Czerwony
+5. Bezbarwny
