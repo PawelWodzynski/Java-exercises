@@ -9,9 +9,9 @@ public class Main implements ActionListener {
     JFrame frame;
     JTextField text_field;
     JButton[] number_buttons = new JButton[10];
-    JButton[] function_buttons = new JButton[8];
+    JButton[] function_buttons = new JButton[9];
     JButton add_button,sub_button,mul_button,div_button;
-    JButton dec_button, equ_button, del_button,clr_button;
+    JButton dec_button, equ_button, del_button,clr_button,neg_button;
     JPanel panel;
 
     Font my_font = new Font("Arial", Font.BOLD,30);
@@ -38,6 +38,7 @@ public class Main implements ActionListener {
         equ_button = new JButton("=");
         del_button = new JButton("Delete");
         clr_button = new JButton("Clear");
+        neg_button = new JButton("(-)");
 
         function_buttons[0] = add_button;
         function_buttons[1] = sub_button;
@@ -47,8 +48,9 @@ public class Main implements ActionListener {
         function_buttons[5] = equ_button;
         function_buttons[6] = del_button;
         function_buttons[7] = clr_button;
+        function_buttons[8] = neg_button;
 
-        for (int i = 0; i<8; i++){
+        for (int i = 0; i<9; i++){
             function_buttons[i].addActionListener(this);
             function_buttons[i].setFont(my_font);
             function_buttons[i].setFocusable(false);
@@ -61,9 +63,9 @@ public class Main implements ActionListener {
             number_buttons[i].setFocusable(false);
         }
 
-
-        del_button.setBounds(50,430,145,50);
-        clr_button.setBounds(205,430,145,50);
+        neg_button.setBounds(50,430,100,50);
+        del_button.setBounds(150,430,100,50);
+        clr_button.setBounds(250,430,100,50);
 
         panel = new JPanel();
         panel.setBounds(50,100,300,300);
@@ -87,6 +89,7 @@ public class Main implements ActionListener {
         //panel.setBackground(Color.GRAY);
 
         frame.add(panel);
+        frame.add(neg_button);
         frame.add(del_button);
         frame.add(clr_button);
         frame.add(text_field);
@@ -106,6 +109,60 @@ public class Main implements ActionListener {
             if (e.getSource() == number_buttons[i]){
                 text_field.setText(text_field.getText().concat(String.valueOf(i)));
             }
+        }
+        if(e.getSource()==dec_button){
+            text_field.setText(text_field.getText().concat("."));
+        }
+        if(e.getSource()==add_button){
+            num1 = Double.parseDouble(text_field.getText());
+            operator = '+';
+            text_field.setText("");
+        }
+        if(e.getSource()==sub_button){
+            num1 = Double.parseDouble(text_field.getText());
+            operator = '-';
+            text_field.setText("");
+        }
+        if(e.getSource()==mul_button){
+            num1 = Double.parseDouble(text_field.getText());
+            operator = '*';
+            text_field.setText("");
+        }
+        if(e.getSource()==div_button){
+            num1 = Double.parseDouble(text_field.getText());
+            operator = '/';
+            text_field.setText("");
+        }
+        if (e.getSource()==equ_button){
+            num2=Double.parseDouble(text_field.getText());
+            switch (operator){
+                case '+'->
+                    result = num1+num2;
+                    case '-'->
+                        result=num1-num2;
+                    case '*'->
+                        result=num1*num2;
+                    case '/'->
+                            result=num1/num2;
+
+            }
+            text_field.setText(String.valueOf(result));
+            num1=result;
+        }
+        if (e.getSource()==clr_button){
+            text_field.setText("");
+        }
+        if (e.getSource()==del_button){
+            String string = text_field.getText();
+            text_field.setText("");
+            for (int i=0;i<string.length()-1; i++){
+                text_field.setText(text_field.getText()+string.charAt(i));
+            }
+        }
+        if (e.getSource()==neg_button){
+            double temp = Double.parseDouble(text_field.getText());
+            temp*=-1;
+            text_field.setText(String.valueOf(temp));
         }
     }
 }
